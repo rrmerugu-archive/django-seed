@@ -13,10 +13,10 @@ This seed will be installed and configured with
  
  
 ## Requirements 
-``
-sudo yum install python27
+```
+sudo yum install python27 gcc httpd mod_wsgi-python27  libxml2-devel python-devel libxslt-devel libffi-devel openssl-devel
 sudo pip install virtualenv
-``
+```
 
 ## Setting the project
 ```
