@@ -10,7 +10,9 @@ This seed will be installed and configured with
 
 
 ### Running in Development Mode
-$python manage.py runserver
+```
+python manage.py runserver
+```
 
 
 
@@ -30,26 +32,27 @@ $python manage.py runserver
 ## Installing the VirtualEnv
 ```
 sudo pip install virtualenv
-
 mkdir djang-seed
-
 cd django-seed
-
 virtualenv . 
-
 source bin/activate
 
 ```
 
+## Installing the packages needed
 
-
+```
 pip install -r requirements.txt
+```
 
 
+
+## Running the django in development mode
 
 
 ## Cautions 
 1. Dont upgrade the mongoengine==0.9.0  to mongoengine==0.1.x, Django support has been split from the main MongoEngine repository. The legacy Django extension may be found bundled with the 0.9 release of MongoEngine. http://docs.mongoengine.org/django.html#django-support
-
+2. User pymongo==2.8.x only 
+3. Modules from requirements.txt only are supported. 
 
 
