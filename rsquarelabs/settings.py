@@ -24,7 +24,9 @@ if not os.path.exists(LOGS_DIR):
 
 
 
-#create LOGS_DIR if not exist
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,6 +36,7 @@ if not os.path.exists(LOGS_DIR):
 SECRET_KEY = '9gaqi@j%nz(qfmqka^s*rofbirl05r)3ukm**v=)9q97%ran(9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# If False sends Emails to the admins regardin the failures
 DEBUG = True
 
 ALLOWED_HOSTS = []
