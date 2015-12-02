@@ -12,6 +12,8 @@ This seed will be installed and configured with
 7. Redis/RabbitMQ (TODO)
  
  
+You may try one of the pre-releases from here https://github.com/rsquarelabs/django-seed/releases/
+ 
 ## Requirements 
 ```
 sudo yum install python27 gcc httpd mod_wsgi-python27  libxml2-devel python-devel libxslt-devel libffi-devel openssl-devel
