@@ -1,0 +1,12 @@
+.idea/
+.idea/dictionaries/*
+.Python
+pip-selfcheck.json
+
+#virtualenv
+bin/
+include/
+lib/
+
+*.pyc
+.idea/dictionaries/rrmerugu.xml
