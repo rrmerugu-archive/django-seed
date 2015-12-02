@@ -7,26 +7,7 @@ This seed will be installed and configured with
 2. redis 
 3. celery
 4. 
-
-
-### Running in Development Mode
-```
-python manage.py runserver
-```
-
-
-
-
-### Running in Production Mode 
-
-1. Installing django in Apache
-/var/httpd/conf/http.conf
-<VirtualHost *:80>
-
-
-</VirtualHost>
-
-
+ 
 
 
 ## Installing the VirtualEnv
@@ -36,19 +17,30 @@ mkdir djang-seed
 cd django-seed
 virtualenv . 
 source bin/activate
-
 ```
 
 ## Installing the packages needed
-
 ```
 pip install -r requirements.txt
 ```
 
 
 
-## Running the django in development mode
+## Running Development Mode
+```
+python manage.py runserver
+```
 
+### Running in Production Mode 
+
+1. Installing django in Apache
+`vi /etc/httpd/conf/httpd.conf `
+```
+<VirtualHost *:80>
+
+
+</VirtualHost>
+```
 
 ## Cautions 
 1. Dont upgrade the mongoengine==0.9.0  to mongoengine==0.1.x, Django support has been split from the main MongoEngine repository. The legacy Django extension may be found bundled with the 0.9 release of MongoEngine. http://docs.mongoengine.org/django.html#django-support

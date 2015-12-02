@@ -13,3 +13,4 @@ logs/
 .idea/dictionaries/rrmerugu.xml
 *.sqlite3
 *.logs
+*.sqlite3
