@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CONFIG_DIR =  BASE_DIR + "/configs/"
+
+LOGS_DIR = BASE_DIR + "/logs/"
+#create LOGS_DIR if not exist
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -89,8 +94,8 @@ DATABASES = {
 MONGO_DBNAME = "rsquarelabs"
 MONGO_HOSTNAME = "localhost"
 from mongoengine import connect
-# connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
-connect('rsquarelabs')
+connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
+
 
 
 # Password validation
@@ -136,6 +141,19 @@ STATIC_URL = '/static/'
 ## REST SETTINGS
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGE_SIZE': 10
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    # http://www.django-rest-framework.org/api-guide/settings/
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',),
+    'PAGE_SIZE': 10,
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
 }
+
+
+

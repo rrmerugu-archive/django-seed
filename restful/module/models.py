@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 
 from mongoengine import SequenceField, EmbeddedDocument, ReferenceField, StringField, ListField, IntField, DateTimeField, BooleanField, Document, ObjectIdField, ValidationError
 from datetime import datetime
+from bson import ObjectId
 import logging
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,10 @@ class Blog(Document):
     blog_content = StringField()
 
     def save(self, *args, **kwargs):
+        if self.blog_id is None:
+            self.blog_id = str(ObjectId())
         self.blog_updated = datetime.now()
         self.blog_slug = slugify(self.blog_title)
         return super(Blog, self).save(*args, **kwargs)
+
+    #TODO - Add clean() or validations() for update
