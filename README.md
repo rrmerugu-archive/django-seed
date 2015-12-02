@@ -80,9 +80,9 @@ You **MUST have to RELOAD** the server to see the changes using the command `sud
 
 ## TODO
 1. Install and configure Celery and Redis/RabbitMQ 
-3. Basic queuing of tasks with Celery
-2. Send emails to admins on errors 
-
+2. Basic queuing of tasks with Celery
+3. Send emails to admins on errors 
+4. Add python packages path to the path if using virtualenv in `rsquarelabs/wsgi.py`
 
 
 ## Cautions 
