@@ -9,12 +9,18 @@ This seed will be installed and configured with
 4. 
  
 
+## Setting the project
+```
+git clone https://github.com/rsquarelabs/django-seed.git
+cd django-seed/
+
+
+```
+
 
 ## Installing the VirtualEnv
 ```
 sudo pip install virtualenv
-mkdir djang-seed
-cd django-seed
 virtualenv . 
 source bin/activate
 ```
@@ -30,6 +36,8 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
+Whenever there is a change happening in the files, the site reloads automatically. This by default will start the site at `http://localhost:8000`, you can start in different port by command `python manage.py runserver 0.0.0.0:9000`
+
 
 ### Running in Production Mode 
 
@@ -46,24 +54,32 @@ WSGIDaemonProcess ec2-user processes=1 maximum-requests=500 threads=1
 WSGIProcessGroup ec2-user
 
 
-
 <VirtualHost *:80>
-    ServerAdmin rsquarelabs@gmail.com
-    DocumentRoot /var/www/html/api.rsquarelabs.xyz/server
-    ServerName api.rsquarelabs.xyz
-
+    ServerAdmin hello@rsquarelabs.xyz
+    DocumentRoot /var/www/html/rsquarelabs.site/rsquarelabs
+    ServerName rsquarelabs.site
     <Directory /var/www/html/rsquarelabs.site/rsquarelabs>
         <Files wsgi.py>
             Order allow,deny
             Allow from all
         </Files>
     </Directory>
- 
     WSGIScriptAlias / /var/www/html/rsquarelabs.site/rsquarelabs/wsgi.py
     ErrorLog /var/www/html/rsquarelabs.site/logs/rsquarelabs.site-error_log
     CustomLog /var/www/html/rsquarelabs.site/logs/rsquarelabs.site-access_log common
 </VirtualHost>
 ```
+
+You **MUST have to RELOAD** the server to see the changes using the command `sudo service httpd reload` .
+
+
+## TODO
+1. Install and configure celery and redis 
+3. Basic queuing of tasks with celery
+2. Send emails on errors 
+
+
+
 
 ## Cautions 
 1. Dont upgrade the mongoengine==0.9.0  to mongoengine==0.1.x, Django support has been split from the main MongoEngine repository. The legacy Django extension may be found bundled with the 0.9 release of MongoEngine. http://docs.mongoengine.org/django.html#django-support
