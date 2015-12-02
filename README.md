@@ -3,10 +3,13 @@ The seed project with the implementation of REDIS, Celery, MongoEngine, django r
 
 This seed will be installed and configured with 
 
-1. Mongoengine
-2. redis 
-3. celery
-4. 
+1. Django
+2. Mongoengine
+3. Logging 
+4. DjangoRestFramework
+5. Sending Emails to Admin on Errors (TODO)
+6. Celery (TODO)
+7. Redis/RabbitMQ (TODO)
  
 
 ## Setting the project
@@ -74,9 +77,9 @@ You **MUST have to RELOAD** the server to see the changes using the command `sud
 
 
 ## TODO
-1. Install and configure celery and redis 
-3. Basic queuing of tasks with celery
-2. Send emails on errors 
+1. Install and configure Celery and Redis/RabbitMQ 
+3. Basic queuing of tasks with Celery
+2. Send emails to admins on errors 
 
 
 
