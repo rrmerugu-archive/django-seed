@@ -1,5 +1,5 @@
 __author__ = 'rrmerugu'
-# from django.template.defaultfilters import slugify
+from django.template.defaultfilters import slugify
 
 from mongoengine import SequenceField, EmbeddedDocument, ReferenceField, StringField, ListField, IntField, DateTimeField, BooleanField, Document, ObjectIdField, ValidationError
 from datetime import datetime
@@ -15,8 +15,7 @@ class Blog(Document):
     blog_updated = DateTimeField(default=datetime.now())
     blog_content = StringField()
 
-    # def save(self, *args, **kwargs):
-    #     self.blog_updated = datetime.now()
-    #     # self.blog_slug = slugify(self.blog_title)
-    #     return super(Blog, self).save(*args, **kwargs)
-
+    def save(self, *args, **kwargs):
+        self.blog_updated = datetime.now()
+        self.blog_slug = slugify(self.blog_title)
+        return super(Blog, self).save(*args, **kwargs)

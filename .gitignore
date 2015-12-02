@@ -10,3 +10,4 @@ lib/
 
 *.pyc
 .idea/dictionaries/rrmerugu.xml
+*.sqlite3

@@ -79,18 +79,18 @@ WSGI_APPLICATION = 'rsquarelabs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy'
+    }
+}
 
 
-MONGO_DBNAME = "rsquarelabs-test"
+MONGO_DBNAME = "rsquarelabs"
 MONGO_HOSTNAME = "localhost"
 from mongoengine import connect
-connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
+# connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
+connect('rsquarelabs')
 
 
 # Password validation
@@ -130,3 +130,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+## REST SETTINGS
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
