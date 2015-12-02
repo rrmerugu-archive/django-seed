@@ -7,7 +7,9 @@ pip-selfcheck.json
 bin/
 include/
 lib/
+logs/
 
 *.pyc
 .idea/dictionaries/rrmerugu.xml
 *.sqlite3
+*.logs

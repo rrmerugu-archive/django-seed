@@ -14,10 +14,16 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 CONFIG_DIR =  BASE_DIR + "/configs/"
-
+LOGFILE_NAME = "rsquarelabs"
 LOGS_DIR = BASE_DIR + "/logs/"
+
+if not os.path.exists(LOGS_DIR):
+    os.mkdir(LOGS_DIR)
+
+
+
+
 #create LOGS_DIR if not exist
 
 
@@ -156,4 +162,56 @@ REST_FRAMEWORK = {
 }
 
 
+
+## Logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '%s/%s.log' %(LOGS_DIR,LOGFILE_NAME),
+            'formatter': 'verbose'
+        },
+
+        # Include the default Django email handler for errors
+        'mail_admins': {
+            'class': 'django.utils.log.AdminEmailHandler',
+            'level': 'ERROR',
+            # But the emails are plain text by default - HTML is nicer
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        # Again, default Django configuration to email unhandled exceptions
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        # Might as well log any errors anywhere else in Django
+        'django': {
+            'handlers': ['file'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+        # Your own app - this assumes all your logger names start with "restful."
+        'restful': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+
+    }
+}
 
