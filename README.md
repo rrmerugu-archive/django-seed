@@ -36,9 +36,32 @@ python manage.py runserver
 1. Installing django in Apache
 `vi /etc/httpd/conf/httpd.conf `
 ```
+# this section will be commented in the httpd.conf, uncomment them to use virtualhosts
+NameVirtualHost *:80
+
+# Add the WSGI settings
+WSGISocketPrefix /var/run/wsgi
+WSGIPythonPath /var/www/html/rsquarelabs.site/lib/python2.7/site-packages:/var/www/html/rsquarelabs.other/lib/python2.7/site-packages
+WSGIDaemonProcess ec2-user processes=1 maximum-requests=500 threads=1
+WSGIProcessGroup ec2-user
+
+
+
 <VirtualHost *:80>
+    ServerAdmin rsquarelabs@gmail.com
+    DocumentRoot /var/www/html/api.rsquarelabs.xyz/server
+    ServerName api.rsquarelabs.xyz
 
-
+    <Directory /var/www/html/rsquarelabs.site/rsquarelabs>
+        <Files wsgi.py>
+            Order allow,deny
+            Allow from all
+        </Files>
+    </Directory>
+ 
+    WSGIScriptAlias / /var/www/html/rsquarelabs.site/rsquarelabs/wsgi.py
+    ErrorLog /var/www/html/rsquarelabs.site/logs/rsquarelabs.site-error_log
+    CustomLog /var/www/html/rsquarelabs.site/logs/rsquarelabs.site-access_log common
 </VirtualHost>
 ```
 
