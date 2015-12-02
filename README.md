@@ -11,19 +11,21 @@ This seed will be installed and configured with
 6. Celery (TODO)
 7. Redis/RabbitMQ (TODO)
  
+ 
+## Requirements 
+``
+sudo yum install python27
+sudo pip install virtualenv
+``
 
 ## Setting the project
 ```
 git clone https://github.com/rsquarelabs/django-seed.git
 cd django-seed/
-
-
 ```
-
 
 ## Installing the VirtualEnv
 ```
-sudo pip install virtualenv
 virtualenv . 
 source bin/activate
 ```
@@ -32,8 +34,6 @@ source bin/activate
 ```
 pip install -r requirements.txt
 ```
-
-
 
 ## Running Development Mode
 ```
@@ -47,8 +47,10 @@ Whenever there is a change happening in the files, the site reloads automaticall
 1. Installing django in Apache
 `vi /etc/httpd/conf/httpd.conf `
 ```
+
 # this section will be commented in the httpd.conf, uncomment them to use virtualhosts
 NameVirtualHost *:80
+
 
 # Add the WSGI settings
 WSGISocketPrefix /var/run/wsgi
@@ -80,7 +82,6 @@ You **MUST have to RELOAD** the server to see the changes using the command `sud
 1. Install and configure Celery and Redis/RabbitMQ 
 3. Basic queuing of tasks with Celery
 2. Send emails to admins on errors 
-
 
 
 
