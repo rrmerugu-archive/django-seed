@@ -22,6 +22,8 @@ This seed will be installed and configured with
 You may try one of the pre-releases from here https://github.com/rsquarelabs/django-seed/releases/
  
 ## Requirements 
+
+supports Python 2.7, 3.4, 3.5
 ```
 sudo yum install python27 gcc httpd mod_wsgi-python27  libxml2-devel python-devel libxslt-devel libffi-devel openssl-devel
 sudo pip install virtualenv

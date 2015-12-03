@@ -31,7 +31,7 @@ before_install:
 # Command to install dependencies
 install:
 - pip install -q Django==$DJANGO
-- pip install -q -r requirements.txt 
+- pip install -q -r requirements.txt
 
 
 #before_script:
