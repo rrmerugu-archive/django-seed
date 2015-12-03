@@ -1,10 +1,11 @@
-__author__ = 'rrmerugu'
+import logging
+
+from rest_framework_mongoengine.serializers import DocumentSerializer
 
 from .models import Blog
-from rest_framework_mongoengine.serializers import  DocumentSerializer
 
-import logging
 logger = logging.getLogger(__name__)
+
 
 class BlogSerializer(DocumentSerializer):
     class Meta:
