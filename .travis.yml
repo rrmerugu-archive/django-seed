@@ -23,7 +23,7 @@ services:
 # Command to install dependencies
 install:
 - pip install -q Django==$DJANGO --use-mirrors
-- pip install -q . --use-mirrors
+#- pip install -q . --use-mirrors
 - pip install -q -r requirements.txt --use-mirrors
 
 # Execution scripts
