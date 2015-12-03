@@ -1,10 +1,9 @@
-__author__ = 'rrmerugu'
-
-
 import unittest
+
 
 def smile():
     return ":)"
+
 
 def frown():
     return ":("
