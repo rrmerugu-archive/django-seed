@@ -1,4 +1,4 @@
-Django==1.8.5
+Django==1.9
 django-filter==0.11.0
 django-rest-framework-mongoengine==2.0.2
 django-rest-swagger==0.3.4
