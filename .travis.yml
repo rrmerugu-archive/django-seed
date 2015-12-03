@@ -1,5 +1,8 @@
 # Django Seed
 # https://gist.github.com/ndarville/3625246#file-travis-yml
+# https://docs.travis-ci.com/user/languages/python
+
+
 
 language: python
 python:

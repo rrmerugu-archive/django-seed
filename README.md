@@ -1,7 +1,12 @@
 # Django-seed
+
+
+![Build status](https://api.travis-ci.org/rsquarelabs/django-seed.svg)
+
 The seed project with the implementation of REDIS, Celery, MongoEngine, django rest framework to quickly get started 
 
-This seed will be installed and configured with 
+
+This seed will be installed and configured with
 
 1. Django
 2. Mongoengine
