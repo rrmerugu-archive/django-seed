@@ -1,7 +1,7 @@
 # Django-seed
 
 
-[![Build Status](https://api.travis-ci.org/rsquarelabs/django-seed.svg)](https://travis-ci.org/mozilla/kuma)
+[![Build Status](https://api.travis-ci.org/rsquarelabs/django-seed.svg)](https://travis-ci.org/rsquarelabs/django-seed)
 [![codecov.io](https://codecov.io/github/rsquarelabs/django-seed/coverage.svg?branch=master)](https://codecov.io/github/rsquarelabs/django-seed?branch=master)
 [![Requirements Status](https://requires.io/github/rsquarelabs/django-seed/requirements.svg?branch=master)](https://requires.io/github/rsquarelabs/django-seed/requirements/?branch=master)
 
