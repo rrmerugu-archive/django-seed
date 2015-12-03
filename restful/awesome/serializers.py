@@ -1,6 +1,6 @@
 __author__ = 'rrmerugu'
 
-from restful.module.models import Blog
+from .models import Blog
 from rest_framework_mongoengine.serializers import  DocumentSerializer
 
 import logging

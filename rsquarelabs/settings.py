@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework_mongoengine',
     'restful',
-    'restful.module'
+    'restful.awesome'
 ]
 
 MIDDLEWARE_CLASSES = [

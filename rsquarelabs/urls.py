@@ -18,5 +18,5 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^docs/', include('rest_framework_swagger.urls') ),
-    url(r'^module/', include('restful.module.urls'))
+    url(r'^awesome/', include('restful.awesome.urls'))
 ]
