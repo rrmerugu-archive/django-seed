@@ -1,0 +1,34 @@
+language: python
+python:
+    - "2.7"
+    - "3.2"
+
+# Environment variables
+env:
+- DJANGO=1.8.5
+
+# Database
+services:
+  - mongodb
+
+# Command to install dependencies
+install:
+- pip install -q Django==$DJANGO --use-mirrors
+- pip install -q . --use-mirrors
+- pip install -q -r requirements.txt --use-mirrors
+
+# Execution scripts
+script: python manage.py test
+
+
+#before_script:
+#  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+
+
+
+notifications:
+email:
+    recipients:
+        - rrmerugu@gmail.com
+    on_success: [always|never|change]
+    on_failure: [always|never|change]
