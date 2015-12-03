@@ -2,8 +2,8 @@
 
 
 ![Build status](https://api.travis-ci.org/rsquarelabs/django-seed.svg)
-![Code coverage status](https://codecov.io/github/rsquarelabs/django-seed/coverage.svg?branch=master)
-
+[![codecov.io](https://codecov.io/github/rsquarelabs/django-seed/coverage.svg?branch=master)](https://codecov.io/github/rsquarelabs/django-seed?branch=master)
+[![Requirements Status](https://requires.io/github/rsquarelabs/django-seed/requirements.svg?branch=master)](https://requires.io/github/rsquarelabs/django-seed/requirements/?branch=master)
 The seed project with the implementation of REDIS, Celery, MongoEngine, django rest framework to quickly get started 
 
 
