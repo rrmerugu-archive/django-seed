@@ -1,3 +1,6 @@
+# Django Seed
+# https://gist.github.com/ndarville/3625246#file-travis-yml
+
 language: python
 python:
     - "2.7"
@@ -11,6 +14,12 @@ env:
 services:
   - mongodb
 
+#before_install:
+#  - export DJANGO_SETTINGS_MODULE=your_project.settings
+#  - export PYTHONPATH=$HOME/builds/your_github_username/your_repo
+#  - export PIP_USE_MIRRORS=true
+
+
 # Command to install dependencies
 install:
 - pip install -q Django==$DJANGO --use-mirrors
@@ -21,8 +30,14 @@ install:
 script: python manage.py test
 
 
+
+
+
+
 #before_script:
 #  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+
+
 
 
 
