@@ -45,5 +45,5 @@ notifications:
 email:
     recipients:
         - rrmerugu@gmail.com
-    on_success: [always|never|change]
-    on_failure: [always|never|change]
+    on_success: [always]
+    on_failure: [always]
