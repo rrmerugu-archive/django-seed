@@ -12,22 +12,16 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from mongoengine import connect
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_DIR =  BASE_DIR + "/configs/"
+CONFIG_DIR = os.path.join(BASE_DIR, 'configs')
 LOGFILE_NAME = "rsquarelabs"
-LOGS_DIR = BASE_DIR + "/logs/"
+LOGS_DIR = os.path.join(BASE_DIR, 'logs')
 
 if not os.path.exists(LOGS_DIR):
     os.mkdir(LOGS_DIR)
-
-
-
-
-
-
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -40,7 +34,6 @@ SECRET_KEY = '9gaqi@j%nz(qfmqka^s*rofbirl05r)3ukm**v=)9q97%ran(9'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -89,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rsquarelabs.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -99,13 +91,10 @@ DATABASES = {
     }
 }
 
-
 MONGO_DBNAME = "rsquarelabs"
 MONGO_HOSTNAME = "localhost"
-from mongoengine import connect
+
 connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -125,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -139,21 +127,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 
-
-
-## REST SETTINGS
+# REST SETTINGS
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     # http://www.django-rest-framework.org/api-guide/settings/
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',),
     'PAGE_SIZE': 10,
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_RENDERER_CLASSES': (
@@ -164,16 +150,15 @@ REST_FRAMEWORK = {
     )
 }
 
-
-
-## Logging
+# Logging
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'format':
+                "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
             'datefmt': "%d/%b/%Y %H:%M:%S"
         },
         'simple': {
@@ -184,7 +169,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '%s/%s.log' %(LOGS_DIR,LOGFILE_NAME),
+            'filename': '%s/%s.log' % (LOGS_DIR, LOGFILE_NAME),
             'formatter': 'verbose'
         },
 
@@ -209,7 +194,7 @@ LOGGING = {
             'propagate': True,
             'level': 'DEBUG',
         },
-        # Your own app - this assumes all your logger names start with "restful."
+        # Your own app - this assumes all your logger names start with "restful"
         'restful': {
             'handlers': ['file'],
             'level': 'DEBUG',
@@ -217,4 +202,3 @@ LOGGING = {
 
     }
 }
-
