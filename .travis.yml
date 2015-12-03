@@ -22,23 +22,30 @@ services:
 #  - export PYTHONPATH=$HOME/builds/your_github_username/your_repo
 #  - export PIP_USE_MIRRORS=true
 
+before_install:
+- pip install codecov
+
+
 
 # Command to install dependencies
 install:
 - pip install -q Django==$DJANGO --use-mirrors
-#- pip install -q . --use-mirrors
 - pip install -q -r requirements.txt --use-mirrors
+
+
+#before_script:
+#  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+
 
 # Execution scripts
 script: python manage.py test
 
 
+after_success:
+- codecov
 
 
 
-
-#before_script:
-#  - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
 
 
