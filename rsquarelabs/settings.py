@@ -116,13 +116,11 @@ USE_TZ = True
 
 
 
-# TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = False
 TEMPLATE_DIRS = (
-    # os.path.join(os.path.dirname(__file__),'../templates'),
     os.path.join(os.path.dirname(__file__),'../website/templates'),
     # os.path.join(os.path.dirname(__file__),'../blog/templates'),
 )
-print TEMPLATE_DIRS
 
 
 
