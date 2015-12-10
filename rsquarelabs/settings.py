@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_swagger',
+    # 'rest_framework_swagger',
     'rest_framework_mongoengine',
     'restful',
     'website',
@@ -81,6 +81,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'rsquarelabs.wsgi.application'
 
 # Database
@@ -99,21 +101,21 @@ connect(MONGO_DBNAME, host=MONGO_HOSTNAME)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+#
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -128,10 +130,30 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+
+
+# TEMPLATE_DEBUG = False
+TEMPLATE_DIRS = (
+    # os.path.join(os.path.dirname(__file__),'../templates'),
+    os.path.join(os.path.dirname(__file__),'../website/templates'),
+    # os.path.join(os.path.dirname(__file__),'../blog/templates'),
+)
+print TEMPLATE_DIRS
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_PATH = os.path.join(os.path.dirname(__file__),'../website/assets')
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+STATIC_URL = '/assets/'
 
-STATIC_URL = '/static/'
+
+
+
 
 # REST SETTINGS
 
