@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework_mongoengine',
     'restful',
+    'website',
     'restful.awesome'
 ]
 
@@ -202,3 +203,8 @@ LOGGING = {
 
     }
 }
+
+
+
+SESSION_ENGINE = 'mongoengine.django.sessions'
+SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
