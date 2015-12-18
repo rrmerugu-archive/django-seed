@@ -42,9 +42,16 @@ source bin/activate
 ```
 
 ## Installing the packages needed
+
 ```
 pip install -r requirements.txt
 ```
+###### For Ubuntu users,if there is any problem in installing pyyaml , run the following command
+```
+sudo apt-get install libyaml-dev libpython2.7-dev
+```
+
+
 
 ## Running Development Mode
 ```
