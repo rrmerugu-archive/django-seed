@@ -18,6 +18,7 @@ This seed will be installed and configured with
 6. Celery (TODO)
 7. Redis/RabbitMQ (TODO)
  
+
  
 You may try one of the pre-releases from here https://github.com/rsquarelabs/django-seed/releases/
  
