@@ -18,6 +18,8 @@
                 <!--<li class=""><a href="#">Blog</a></li>-->
 
                 {% if user.is_authenticated %}
+                <li  ><a href=""> Hey {{ user.email }}</a></li>
+
                 <li class="login"><a href="/auth/logout/"><i class="fa fa-lock"></i> Logout</a></li>
                 {% else %}
 
