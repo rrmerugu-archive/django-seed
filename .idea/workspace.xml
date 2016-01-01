@@ -2,35 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="766fb199-2aa9-416b-8224-06034d08baf5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CONTRIBUTORS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manage.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/serializers.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/tasks.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful/awesome/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs/settings.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs/wsgi.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/assets/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/assets/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/assets/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/assets/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/templates/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/templates/includes/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/templates/includes/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/db.sqlite3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/manage.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/admin.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/apps.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/models.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/tests.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/urls.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/restful/users/views.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/rsquarelabs_api/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/rsquarelabs_api/settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/rsquarelabs_api/urls.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rsquarelabs_api/rsquarelabs_api/wsgi.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="django-seed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,18 +38,7 @@
     <favorites_list name="django-seed" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14822134">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,6 +136,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rsquarelabs_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -172,11 +163,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/website/templates" />
       <recent name="$PROJECT_DIR$/website" />
       <recent name="$PROJECT_DIR$/website/static" />
       <recent name="$PROJECT_DIR$/restful/module" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -318,13 +309,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="735" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -373,7 +364,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14822134">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
