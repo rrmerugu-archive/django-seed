@@ -1,19 +1,9 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.utils.http import urlquote
-from django.core.mail import send_mail
-from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
-
-# Create your models here.
-# from django.contrib.auth.models import User as BaseUser, PermissionsMixin, BaseUserManager, UserManager
-
-
-## https://www.caktusgroup.com/blog/2013/08/07/migrating-custom-user-model-django/
-## http://www.roguelynn.com/words/django-custom-user-models/
 
 
 
+#http://stackoverflow.com/questions/17896346/django-custom-user-authentication-nonetype-error
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 class CustomUserManager(BaseUserManager):

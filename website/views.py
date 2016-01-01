@@ -24,7 +24,7 @@ def login(request):
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-# from restful.users.backend import
+
 from django.shortcuts import render_to_response,redirect
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
@@ -35,26 +35,18 @@ from restful.users.models import User
 from django.contrib.auth.tokens import default_token_generator
 
 def login_user(request):
-    logout(request)
+    # logout(request)
     username = password = ''
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
         print authenticate(username=username)
-        #user = authenticate(username=username, password=password)
-
-        try:
-            user = User.objects.get(username = username)
-            if user.check_password(password):
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponseRedirect('/user/')
-                    #return user
-            else:
-                return None
-        except User.DoesNotExist:
-            return None
-
+        user = authenticate(username=username, password=password)
+        print user
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/user/')
 
     return render_to_response('login.html', context_instance=RequestContext(request))
 

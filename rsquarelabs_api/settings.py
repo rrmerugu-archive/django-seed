@@ -60,9 +60,9 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'rsquarelabs_api.urls'
 
 
-CUSTOM_USER_MODEL = "restful.users.models.User"
+#CUSTOM_USER_MODEL = "restful.users.models.User"
 
-# AUTHENTICATION_BACKENDS = ('restful.users.backend.CustomModelBackend',)
+AUTHENTICATION_BACKENDS = ('restful.users.backend.CustomModelBackend',)
 
 
 
