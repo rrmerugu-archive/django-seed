@@ -11,3 +11,4 @@ class Projects(models.Model):
     project_name = models.CharField(max_length=100)
     project_name_slug = models.CharField(max_length=150)
     project_owner = models.ForeignKey(User)
+    project_tags = models.CharField(max_length=300)
