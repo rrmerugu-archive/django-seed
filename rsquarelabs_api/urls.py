@@ -20,11 +20,15 @@ from django.contrib import admin
 urlpatterns = [
     #admin
     url(r'^admin/', admin.site.urls),
+
     #oauth
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 
-    #docs
+    #api auth
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    #api docs
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 
 
     url(r'^restful/', include('restful.users.urls')),
