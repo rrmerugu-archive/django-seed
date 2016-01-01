@@ -24,6 +24,7 @@ def login(request):
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+# from restful.users.backend import
 from django.shortcuts import render_to_response,redirect
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
@@ -39,12 +40,22 @@ def login_user(request):
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
+        print authenticate(username=username)
+        #user = authenticate(username=username, password=password)
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/user/')
+        try:
+            user = User.objects.get(username = username)
+            if user.check_password(password):
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/user/')
+                    #return user
+            else:
+                return None
+        except User.DoesNotExist:
+            return None
+
+
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 
@@ -80,12 +91,3 @@ def register(request):
 def register_success(request):
     return render_to_response( 'register_success.html', )
 
-from django.contrib.auth.forms import PasswordResetForm, PasswordChangeForm
-#
-
-# def password_reset(request, is_admin_site=False,
-#             template_name='registration/password_reset_form.html',
-#             email_template_name='registration/password_reset_email.html',
-#             password_reset_form=PasswordResetForm,
-#             token_generator=default_token_generator,
-#             post_reset_redirect=None):

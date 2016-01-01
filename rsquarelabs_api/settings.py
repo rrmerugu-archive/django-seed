@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# AUTH_USER_MODEL = "restful.users.models.User"
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -60,6 +60,11 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'rsquarelabs_api.urls'
 
 
+CUSTOM_USER_MODEL = "restful.users.models.User"
+
+# AUTHENTICATION_BACKENDS = ('restful.users.backend.CustomModelBackend',)
+
+
 
 TEMPLATES = [
     {
@@ -100,7 +105,7 @@ WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'rsquarelabs_api',                      # Or path to database file if using sqlite3.
+            'NAME': 'rsquarelabs_api1',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
             'USER': 'postgres',
             'PASSWORD': 'welcome',
