@@ -18,7 +18,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+    #admin
     url(r'^admin/', admin.site.urls),
+    #oauth
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+
+    #docs
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+
     url(r'^restful/', include('restful.users.urls')),
+    url(r'^', include('website.urls')),
+
 ]
