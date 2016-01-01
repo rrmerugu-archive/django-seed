@@ -9,6 +9,22 @@
 - MongoDB (Secondary Database)
 
 
+
+
+## Milestones 
+- Logger 
+- RabbitMQ/Redis 
+- Celery
+- Emails
+- 404, 500 , broken links email
+- Admin Panel, custom admin data
+- MongoDB as secondary
+- RPC/socket - keep api connection alive 
+- AngularJS
+- D3 Graphs
+
+
+
 ## Installation
 
 brew install postgresql
