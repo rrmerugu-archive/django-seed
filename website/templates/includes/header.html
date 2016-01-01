@@ -18,12 +18,12 @@
                 <!--<li class=""><a href="#">Blog</a></li>-->
 
                 {% if user.is_authenticated %}
-                <li class="login"><a href="/logout/"><i class="fa fa-lock"></i> Logout</a></li>
+                <li class="login"><a href="/auth/logout/"><i class="fa fa-lock"></i> Logout</a></li>
                 {% else %}
 
-                <li class="login"><a href="/login/"><i class="fa fa-lock"></i> Login</a></li>
-                 <li class="login"><a href="/register/"><i class="fa fa-lock"></i> Register</a></li>
-                <li class="login"><a href="/forgot-password/"><i class="fa fa-lock"></i> Forgot Password</a></li>
+                <li class="login"><a href="/auth/login/"><i class="fa fa-lock"></i> Login</a></li>
+                 <li class="login"><a href="/auth/register/"><i class="fa fa-lock"></i> Register</a></li>
+                <li class="login"><a href="/auth/password-reset/"><i class="fa fa-lock"></i> Forgot Password</a></li>
                 {% endif %}
 
 

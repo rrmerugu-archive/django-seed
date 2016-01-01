@@ -44,12 +44,12 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/main/')
+                return HttpResponseRedirect('/user/')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/auth/login/')
 def main(request):
     return render_to_response('main.html', context_instance=RequestContext(request))
 
@@ -69,7 +69,7 @@ def register(request):
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
-            return HttpResponseRedirect('/welcome/')
+            return HttpResponseRedirect('/auth/welcome/')
     else:
         form = RegistrationForm()
     variables = RequestContext(request, { 'form': form })
@@ -81,3 +81,11 @@ def register_success(request):
     return render_to_response( 'register_success.html', )
 
 from django.contrib.auth.forms import PasswordResetForm, PasswordChangeForm
+#
+
+# def password_reset(request, is_admin_site=False,
+#             template_name='registration/password_reset_form.html',
+#             email_template_name='registration/password_reset_email.html',
+#             password_reset_form=PasswordResetForm,
+#             token_generator=default_token_generator,
+#             post_reset_redirect=None):
