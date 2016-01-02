@@ -46,7 +46,14 @@ class Post(models.Model):
         return self.title
 
 
+class Subscriber(models.Model):
+    subscriber_id = models.IntegerField()
+    email = models.EmailField(max_length=100)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateTimeField(default=timezone.now())
+    date_updated = models.DateTimeField(blank=True, null =True)
 
 
 admin.site.register(Post)
 admin.site.register(Category)
+admin.site.register(Subscriber)

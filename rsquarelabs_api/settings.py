@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'restful',
     'rest_framework',
-    'rest_framework_swagger',
+    # 'rest_framework_swagger',
     'djcelery',
     'djrill',
 ]
@@ -119,15 +119,29 @@ TEMPLATES = [
 
 
 
+
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer', #enables browsable api
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+         'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+    ),
+    'PAGE_SIZE': 8,
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'PAGINATE_BY': 8,
+    'PAGINATE_BY_PARAM': 'page_size',
 }
-
-
 
 WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 

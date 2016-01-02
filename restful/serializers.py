@@ -2,7 +2,7 @@ __author__ = 'rrmerugu'
 
 
 from rest_framework import   serializers
-from core.models import Project, Post
+from core.models import Project, Post, Subscriber
 from core.auth import User
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):
@@ -18,3 +18,8 @@ class ProjectSerialzer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
+
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber

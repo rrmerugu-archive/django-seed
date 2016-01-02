@@ -25,10 +25,10 @@ urlpatterns = [
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 
     #api auth
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^restful-doc/', include('rest_framework.urls', namespace='rest_framework')),
 
     #api docs
-    url(r'^docs/', include('rest_framework_swagger.urls')),
+    # url(r'^docs/', include('rest_framework_swagger.urls')),
 
     #restful
     url(r'^restful/', include('restful.urls')),
