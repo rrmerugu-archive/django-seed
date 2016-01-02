@@ -34,7 +34,7 @@ This project uses PostgreSQL as primary data base..
 
 
 
-### Running RabbitMQ
+### How to implement RabbitMQ
 1. ./rabbitmq-server 
 2. python manage.py celeryd -l INFO
 3. python manage.py runserver
@@ -59,11 +59,12 @@ urlpatterns = [
 Test the task `http://localhost:8000/restful/test-task`
 
 
-### Logging 
-```
+### How to implement Logging 
+```python
 # import this in the file where you want to log 
 import logging
 logger = logging.getLogger(__name__)
+
 
 # log what you want to 
 logger.debug("Im debug message")
