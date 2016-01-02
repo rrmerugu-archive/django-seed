@@ -26,5 +26,7 @@ from . import tasks
 
 def test_celery(request):
 	result = tasks.add.delay(10 , 30)
-
 	return HttpResponse(result.task_id)
+
+
+

@@ -37,7 +37,7 @@ if not os.path.exists(LOGS_DIR):
 SECRET_KEY = '@hn33bo@rd%r318eodg%itfp3@z+fx$&q0(cs-&p1o3_i8h(99'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -56,6 +56,9 @@ SERVER_EMAIL = 'admin@example.com'
 MANDRILL_API_KEY = SET.MANDRILL_API_KEY
 
 
+
+
+# AUTH_USER_MODEL = "restful.users.User"
 # Application definition
 
 INSTALLED_APPS = [
@@ -135,7 +138,7 @@ WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'rsquarelabs_api1',                      # Or path to database file if using sqlite3.
+            'NAME': 'rsquarelabs_api2',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
             'USER': 'postgres',
             'PASSWORD': 'welcome',
