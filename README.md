@@ -2,6 +2,12 @@
 
 
 
+This project uses PostgreSQL as primary data base.. 
+
+
+
+
+
 ## Technical Stack
 - Django
 - Django Restframework
@@ -11,17 +17,31 @@
 
 
 
+
 ## Milestones 
 - Logger 
-- RabbitMQ/Redis 
-- Celery
+- Queing System - RabbitMQ & Celery [done]
 - Emails
+- Write tests for above
+- django-compressor
+- sass
 - 404, 500 , broken links email
 - Admin Panel, custom admin data
 - MongoDB as secondary
 - RPC/socket - keep api connection alive 
 - AngularJS
 - D3 Graphs
+
+
+
+### Running RabbitMQ
+1. ./rabbitmq-server 
+2. python manage.py celeryd -l INFO
+3. python manage.py runserver
+
+Test the task `http://localhost:8000/restful/test-task`
+
+
 
 
 
@@ -53,6 +73,13 @@ Or, if you don't want/need launchctl, you can just run:
 6. http://www.aptuz.com/blog/is-postgres-nosql-database-better-than-mongodb/
 7. http://thebuild.com/presentations/json2015-pgconfus.pdf
 
+
+## Reasons why I used RabbitMQ than Redis 
+1. http://stackoverflow.com/questions/9140716/whats-the-advantage-of-using-celery-with-rabbitmq-over-redis-mongodb-or-django
+2. https://www.quora.com/What-is-the-difference-between-a-message-queue-and-a-task-queue-Why-would-a-task-queue-require-a-message-broker-like-RabbitMQ-Redis-Celery-or-IronMQ-to-function
+
 ## Reference
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn
+
+

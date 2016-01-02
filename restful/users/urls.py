@@ -11,4 +11,5 @@ router.register(r'projects', views.ProjectsViewSet)
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^', include(router.urls)),
+    url(r'^test-task$', views.test_celery),
 ]
