@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
 
+
+from .config import dev as SET
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -36,8 +38,22 @@ SECRET_KEY = '@hn33bo@rd%r318eodg%itfp3@z+fx$&q0(cs-&p1o3_i8h(99'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['localhost']
+
+
+SEND_BROKEN_LINK_EMAILS = True
+
+ADMINS = (
+    ('Ravi', 'demo@rsquarelabs.xyz'), ('Example', 'example@rsquarelabs.xyz'),
+)
+MANAGERS = ADMINS
+
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"  # Override your existing EMAIL_BACKEND with the following line:
+SERVER_EMAIL = 'admin@example.com'
+
+
+''' Mandrill Email - Regarding the email functionality '''
+MANDRILL_API_KEY = SET.MANDRILL_API_KEY 
 
 
 # Application definition
@@ -59,6 +75,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.common.BrokenLinkEmailsMiddleware', # should be placed on top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
