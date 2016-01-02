@@ -53,7 +53,7 @@ SERVER_EMAIL = 'admin@example.com'
 
 
 ''' Mandrill Email - Regarding the email functionality '''
-MANDRILL_API_KEY = SET.MANDRILL_API_KEY 
+MANDRILL_API_KEY = SET.MANDRILL_API_KEY
 
 
 # Application definition
@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'djcelery',
+    'djrill',
 ]
 
 MIDDLEWARE_CLASSES = [
