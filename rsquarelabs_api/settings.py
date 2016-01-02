@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'core',
     'bootstrapform',
-    'restful.users',
+    'restful',
     'rest_framework',
     'rest_framework_swagger',
     'djcelery',

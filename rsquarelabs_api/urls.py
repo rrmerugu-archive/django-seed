@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^docs/', include('rest_framework_swagger.urls')),
 
     #restful
-    url(r'^restful/', include('restful.users.urls')),
+    url(r'^restful/', include('restful.urls')),
 
     #website
     url(r'^', include('website.urls')),

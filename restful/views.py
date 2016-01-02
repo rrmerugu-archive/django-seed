@@ -3,9 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from rest_framework import viewsets
-from core.models import  Project
+from core.models import  Project, Post
 from core.auth import  User
-from .serializers import UserSerializer, ProjectSerialzer
+from .serializers import UserSerializer, ProjectSerialzer, PostSerializer
 
 def index(request):
     return HttpResponse("Hello, world. You're are now seeing the rsquarelabs-xyz APIs .")
@@ -17,7 +17,13 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset =  Project.objects.all()
+    serializer_class =  ProjectSerialzer
 
+class BlogViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 from django.http import HttpResponse
 from . import tasks
