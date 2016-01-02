@@ -35,9 +35,9 @@ if not os.path.exists(LOGS_DIR):
 SECRET_KEY = '@hn33bo@rd%r318eodg%itfp3@z+fx$&q0(cs-&p1o3_i8h(99'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition

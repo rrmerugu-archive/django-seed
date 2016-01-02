@@ -22,19 +22,23 @@ This project uses PostgreSQL as primary data base..
 - Logger 
 - Queing System - RabbitMQ & Celery [done]
 - Emails
-- Write tests for above
-- django-compressor
-- sass
 - 404, 500 , broken links email
-- Admin Panel, custom admin data
 - MongoDB as secondary
+- Admin Panel, custom admin data
+
 - RPC/socket - keep api connection alive 
 - AngularJS
 - D3 Graphs
+- Write tests for above
+- django-compressor
+- sass
 
 
 
-### How to implement RabbitMQ
+### How to implement Queing System
+
+We implemented this queing system with rabbitmq and celery
+
 1. ./rabbitmq-server 
 2. python manage.py celeryd -l INFO
 3. python manage.py runserver
@@ -72,6 +76,17 @@ logger.info("Im info message")
 
 ```
 
+
+### 404 & 500 Error Pages 
+
+To see these, you must make some changes in `settings.py`:
+
+```
+DEBUG = False # you will see 404 and 500 error page only if this is False
+ALLOWED_HOSTS = ['localhost']
+```
+
+But in `DEBUG=false` mode, static files wont be served, you can run it with `python manage.py runserver --insecure`
 
 ## Installation
 
