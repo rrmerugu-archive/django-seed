@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     'core',
     'bootstrapform',
     'restful.users',
-    'restful.projects',
+    # 'restful.projects',
     'rest_framework',
     'rest_framework_swagger',
     'djcelery',

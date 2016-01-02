@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from rest_framework import viewsets
-from .models import  Projects
+from core.models import  Projects
 from core.auth import  User
 from .serializers import UserSerializer, ProjectSerialzer
 
@@ -17,9 +17,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class ProjectsViewSet(viewsets.ModelViewSet):
-    queryset =  Projects.objects.all()
-    serializer_class = ProjectSerialzer
 
 
 from django.http import HttpResponse

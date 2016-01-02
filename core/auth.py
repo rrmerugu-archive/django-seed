@@ -91,14 +91,7 @@ class User(AbstractBaseUser):
 
 
 
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-
-from django.contrib.auth.models import Group
-
-from website.forms import RegistrationForm
-
 
 from django import forms
 from django.contrib import admin
@@ -192,6 +185,3 @@ admin.site.unregister(Group)
 
 
 
-class Projects(models.Model):
-    project_id = models.CharField(max_length=16)
-    project_name = models.CharField(max_length=150)
