@@ -1,7 +1,7 @@
 __author__ = 'rrmerugu'
 
 from django import forms
-from restful.users.models import User
+from core.auth import User
 from django.utils.translation import ugettext_lazy as _
 
 

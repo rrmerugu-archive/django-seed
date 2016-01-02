@@ -29,7 +29,7 @@ from django.shortcuts import render_to_response,redirect
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
 from .forms import RegistrationForm
-from restful.users.models import User
+from core.auth import User
 
 
 from django.contrib.auth.tokens import default_token_generator

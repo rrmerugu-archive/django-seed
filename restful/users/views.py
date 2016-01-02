@@ -3,7 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from rest_framework import viewsets
-from .models import User, Projects
+from .models import  Projects
+from core.auth import  User
 from .serializers import UserSerializer, ProjectSerialzer
 
 def index(request):

@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'oauth2_provider',
+    'core',
     'bootstrapform',
     'restful.users',
     'restful.projects',
@@ -95,7 +96,7 @@ ROOT_URLCONF = 'rsquarelabs_api.urls'
 
 #CUSTOM_USER_MODEL = "restful.users.models.User"
 
-AUTHENTICATION_BACKENDS = ('restful.users.backend.CustomModelBackend',)
+AUTHENTICATION_BACKENDS = ('core.backend.CustomModelBackend',)
 
 
 

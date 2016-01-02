@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from restful.users.models import User
+from core.auth import User
 # Create your models here.
 
 
