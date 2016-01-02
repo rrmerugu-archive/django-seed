@@ -7370,8 +7370,9 @@ a:hover, a:active, a:focus {
 }
 
 h1, h2, h3, h4, h5, h6, p, ol > li, ul > li {
-  font-weight: lighter;
-  color: #444;
+  font-weight: 300;
+  color: #222;
+  line-height: 1.9em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -7398,7 +7399,7 @@ a.list-group-item:hover, a.list-group-item:active {
   color: white;
 }
 
-.form-control {
+.form-control, .form-group-lg .form-control {
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   outline: none;
@@ -7415,8 +7416,21 @@ button, .btn {
   border-radius: 2px;
 }
 
+.footer {
+  padding: 20px;
+  background: #d9a701;
+}
+.footer a {
+  color: white;
+}
+.footer a:hover, .footer a:active, .footer a:focus {
+  color: #fecd28;
+}
 .footer .list-inline > li {
   font-weight: bold;
+}
+.footer .list-inline {
+  margin-bottom: 0;
 }
 
 /*
@@ -7425,6 +7439,14 @@ fw - font weight
 fem - font size in em
 
 */
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
 .fs-16 {
   font-size: 16px;
 }
@@ -7638,7 +7660,6 @@ Each color will have 4 forms
 }
 h1.hero-title {
   white-space: nowrap;
-  width: 100%;
   -webkit-animation: typing 1s steps(30, end), blink-caret 1s step-end infinite;
   -moz-animation: typing 1s steps(30, end), blink-caret 1s step-end infinite;
 }
@@ -7769,9 +7790,6 @@ p.type-effect {
   font-family: "Courier";
   margin: 10px 0 0 10px;
   white-space: nowrap;
-  overflow: hidden;
-  width: 50em;
-  animation: type 1s steps(60, end);
 }
 
 p.type-effect i.fa {
@@ -7829,6 +7847,7 @@ p.type-effect span {
 .loginbox {
   padding: 30px 10px 30px 10px;
   border: 1px solid #efefef;
+  border-bottom: 3px solid #efefef;
 }
 
 .social-buttons button.google {
@@ -7933,7 +7952,7 @@ iframe[src^="https://apis.google.com"] {
 }
 
 .rsquare-fluid .navbar-header {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .rsquare-dna-li {
@@ -8359,4 +8378,71 @@ md-input-container {
 .faq {
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+.page-header-light-auth .breadcrumb {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.page-header-light-auth ul.breadcrumb, .page-header-light-auth ul.breadcrumb li {
+  margin-bottom: 0;
+}
+
+/*
+For more SASS functions
+http://sass-lang.com/documentation/Sass/Script/Functions.html
+http://sass-lang.com/guide
+http://webdesign.tutsplus.com/tutorials/how-to-use-sass-to-build-one-project-with-multiple-themes--cms-22104
+*/
+/*
+Each color will have 4 forms
+1. Original
+2. Light
+3. Lighter
+4. Lightest
+*/
+.timeleft {
+  position: absolute;
+  right: 16px;
+  top: 1px;
+  background: #d9a701;
+  border-top-right-radius: 2px;
+  padding: 3px 5px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.projectcard .imagebg {
+  border: none;
+  height: 160px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+
+.projectcard .link {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 15px;
+}
+
+.projectcard a h3 {
+  color: white;
+  font-weight: bolder;
+}
+
+.welcome-page .get-started {
+  margin-top: 120px;
+}
+
+#get-started .callout {
+  margin-top: 94px !important;
+}
+
+.callout {
+  border-radius: 1px;
+  border-left-width: 3px;
 }

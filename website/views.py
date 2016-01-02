@@ -2,6 +2,9 @@ __author__ = 'rrmerugu'
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+import logging
+logger = logging.getLogger(__name__)
+
 
 def index(request):
     return HttpResponse("Hello, world!, website starts here .")
@@ -40,9 +43,7 @@ def login_user(request):
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
-        print authenticate(username=username)
         user = authenticate(username=username, password=password)
-        print user
         if user is not None:
             if user.is_active:
                 login(request, user)
@@ -72,7 +73,10 @@ def register(request):
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
-            return HttpResponseRedirect('/auth/welcome/')
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+            logger.debug(user)
+            login(request, user)
+            return HttpResponseRedirect('/user/welcome/')
     else:
         form = RegistrationForm()
     variables = RequestContext(request, { 'form': form })
@@ -81,7 +85,7 @@ def register(request):
 
 
 def register_success(request):
-    return render_to_response( 'register_success.html', )
+    return render_to_response( 'register_success.html',  {'title': 'Success'}, context_instance=RequestContext(request))
 
 
 
