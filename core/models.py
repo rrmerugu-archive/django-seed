@@ -20,6 +20,15 @@ def mark_as_done(modeladmin, request, queryset):
 admin.site.register(Project)
 
 
+
+class Category(models.Model):
+    title = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+
+    def __unicode__(self):
+        return '%s' % self.title
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200, unique=True, db_index=True)
@@ -27,6 +36,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField( default=timezone.now)
     published_date = models.DateTimeField( blank=True, null=True)
+    category = models.ForeignKey(Category)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -36,4 +46,7 @@ class Post(models.Model):
         return self.title
 
 
+
+
 admin.site.register(Post)
+admin.site.register(Category)
