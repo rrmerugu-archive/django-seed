@@ -2,7 +2,11 @@
 
 
 
-This project uses PostgreSQL as primary data base.. 
+This project uses PostgreSQL as primary data base.. For the very first time, run 
+```
+python manage.py makemigrations core
+python manage.py migrate
+```
 
 
 
