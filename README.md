@@ -39,10 +39,37 @@ This project uses PostgreSQL as primary data base..
 2. python manage.py celeryd -l INFO
 3. python manage.py runserver
 
+```python
+# in tasks.py
+@celery.task
+def add(x,y):
+	return x + y
+
+# in views.py
+def test_celery(request):
+	result = tasks.add.delay(10 , 30)
+	return HttpResponse(result.task_id)
+
+# in urls.py
+urlpatterns = [
+  ...
+  url(r'^test-task$', views.test_celery),
+ ]
+```
 Test the task `http://localhost:8000/restful/test-task`
 
 
+### Logging 
+```
+# import this in the file where you want to log 
+import logging
+logger = logging.getLogger(__name__)
 
+# log what you want to 
+logger.debug("Im debug message")
+logger.info("Im info message")
+
+```
 
 
 ## Installation
