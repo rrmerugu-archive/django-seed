@@ -9,3 +9,4 @@ logs/
 kombu/
 djcelery/
 rsquarelabs_api/config/dev.py
+*migrations/
