@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^', include(router.urls)),
     url(r'^test-task$', views.test_celery),
-    url(r'^test-cache', views.TestCache.as_view())
-
+    url(r'^test-cache', views.TestCache.as_view()),
+    url(r'^test-decorator', views.TestDecorator.as_view()),
+     url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
+ url(r'^api-token-refresh/', 'rest_framework_jwt.views.refresh_jwt_token'),
 ]

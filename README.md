@@ -19,8 +19,42 @@ python manage.py migrate
 - MongoDB (Secondary Database)
 
 
+## Token based authentication api 
+
+http://localhost:8000/restful/api-token-auth/
+
+```bash
+# create token 
+curl -X POST -d "username=rrmerugu&password=welcome123" http://localhost:8000/restful/api-token-auth/
+
+# refresh token
+curl -X POST -H "Content-Type: application/json" -d '{"token":"<EXISTING_TOKEN>"}' http://localhost:8000/restful/api-token-refresh/
+```
+
+```python
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 
+class RestrictedView(APIView):
+    permission_classes = (IsAuthenticated, )
+    authentication_classes = (JSONWebTokenAuthentication, )
+
+    def get(self, request):
+        data = {
+            'id': request.user.id,
+            'username': request.user.username,
+            'token': str(request.auth)
+        }
+        return Response(data)
+        
+```
+In header, pass the "Authorisation" : "JWT <token>"
+ 
+JWT(default) is the prefix defined in the settings..  
 
 ## Milestones 
 - Logger 

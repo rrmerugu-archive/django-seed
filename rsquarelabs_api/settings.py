@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
-
+from datetime import  datetime, timedelta
 
 from .config import dev as SET
 import os
@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'restful',
     'rest_framework',
+     'rest_framework.authtoken',
     # 'rest_framework_swagger',
     'djcelery',
     'djrill',
@@ -155,17 +156,37 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser'
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticated'
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication'
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+
     ),
     'PAGE_SIZE': 8,
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'PAGINATE_BY': 8,
     'PAGINATE_BY_PARAM': 'page_size',
+
+
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day', # this is the reason they have to register to us :D
+        'user': '1000/day'
+    }
 }
+
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': timedelta(days=7), #token expires in 7 days
+    'JWT_AUTH_HEADER_PREFIX': 'JWT', # this should be sent in the headers of AngularJS eg: 'JWT <token>',
+    'JWT_VERIFY': True,
+}
+
 
 WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 
@@ -272,7 +293,7 @@ LOGGING = {
             'level': 'DEBUG',
         },
         # Your own app - this assumes all your logger names start with "restful."
-        'website': {
+        'core': {
             'handlers': ['file'],
             'level': 'DEBUG',
         },
