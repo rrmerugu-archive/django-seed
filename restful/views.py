@@ -116,10 +116,14 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 
 ##http://jpadilla.com/post/73791304724/auth-with-json-web-tokens
+from django.views.decorators.cache import never_cache
+
 
 class TestDecorator(APIView):
     permission_classes = (IsAuthenticated, )
     authentication_classes =  (JSONWebTokenAuthentication,)
+
+    @never_cache
     def get(self, request, format=None):
         logger.debug(request.user)
         print "XXOOXX %s" %request.user.username
