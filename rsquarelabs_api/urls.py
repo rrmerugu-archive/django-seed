@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from website.views import handler404, handler500
+
 urlpatterns = [
     #admin
     url(r'^admin/', admin.site.urls),
@@ -34,9 +34,7 @@ urlpatterns = [
     url(r'^restful/', include('restful.urls')),
 
     #website
-    url(r'^', include('website.urls')),
+    # url(r'^', include('website.urls')),
 
 ]
 
-handler404 = handler404
-handler500 = handler500

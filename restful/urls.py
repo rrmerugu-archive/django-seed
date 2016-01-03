@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^', include(router.urls)),
     url(r'^test-task$', views.test_celery),
+    url(r'^test-cache', views.TestCache.as_view())
 
 ]

@@ -78,7 +78,12 @@ INSTALLED_APPS = [
     'djrill',
 ]
 
+
+
+## caching middleware added
+## https://docs.djangoproject.com/en/1.9/topics/cache/#the-per-site-cache
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware', # needed for cache | this must be first
     'django.middleware.common.BrokenLinkEmailsMiddleware', # should be placed on top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -88,7 +93,26 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware', # needed for cache | this must be last
+
 ]
+
+
+# https://niwinz.github.io/django-redis/latest/#_configure_as_cache_backend
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
+# https://niwinz.github.io/django-redis/latest/#_configure_as_session_backend
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 ROOT_URLCONF = 'rsquarelabs_api.urls'
 
@@ -186,7 +210,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
