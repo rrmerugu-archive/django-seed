@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'restful',
     'rest_framework',
-     'rest_framework.authtoken',
+    'rest_framework.authtoken',
     # 'rest_framework_swagger',
     'djcelery',
     'djrill',
