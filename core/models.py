@@ -41,6 +41,7 @@ class CustomUserManager(BaseUserManager):
         )
         user.set_password(password)
         user.save(using=self._db)
+
         ## gather the token for the user and return it
         return user
 
