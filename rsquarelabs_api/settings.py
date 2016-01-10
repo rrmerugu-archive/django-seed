@@ -38,7 +38,13 @@ SECRET_KEY = '@hn33bo@rd%r318eodg%itfp3@z+fx$&q0(cs-&p1o3_i8h(99'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'rsquarelabs-xyz.local']
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'hostname.example.com'
+)
 
 
 SEND_BROKEN_LINK_EMAILS = True
@@ -58,7 +64,7 @@ MANDRILL_API_KEY = SET.MANDRILL_API_KEY
 
 
 
-# AUTH_USER_MODEL = "restful.users.User"
+AUTH_USER_MODEL = "core.MyUser"
 # Application definition
 
 INSTALLED_APPS = [
@@ -69,6 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'oauth2_provider',
+   'corsheaders',
     'core',
     'bootstrapform',
     'restful',
@@ -77,6 +84,7 @@ INSTALLED_APPS = [
     # 'rest_framework_swagger',
     'djcelery',
     'djrill',
+
 ]
 
 
@@ -84,10 +92,13 @@ INSTALLED_APPS = [
 ## caching middleware added
 ## https://docs.djangoproject.com/en/1.9/topics/cache/#the-per-site-cache
 MIDDLEWARE_CLASSES = [
+
+
     'django.middleware.cache.UpdateCacheMiddleware', # needed for cache | this must be first
     'django.middleware.common.BrokenLinkEmailsMiddleware', # should be placed on top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # for cors
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -201,7 +212,7 @@ WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'rsquarelabs_api',                      # Or path to database file if using sqlite3.
+            'NAME': 'rsquarelabs_api1',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
             'USER': 'postgres',
             'PASSWORD': 'welcome',

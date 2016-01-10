@@ -2,13 +2,23 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
+
+from . import tasks
 from rest_framework import viewsets
 from core.models import  Project, Post, Subscriber
-from core.auth import  User
+from core.auth import  MyUser
 from .serializers import UserSerializer, ProjectSerialzer, PostSerializer, SubscriberSerializer
 from rest_framework.permissions import IsAuthenticated, BasePermission, AllowAny
-
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+##http://jpadilla.com/post/73791304724/auth-with-json-web-tokens
+from django.views.decorators.cache import never_cache
 import logging
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.core.cache import cache
+from datetime import datetime
+
+
 logger = logging.getLogger(__name__)
 
 
@@ -19,8 +29,11 @@ def index(request):
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = MyUser.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (AllowAny,)
+
+
 
 class ProjectViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny,)
@@ -43,18 +56,13 @@ class SubscriberViewSet(viewsets.ModelViewSet):
     serializer_class = SubscriberSerializer
 
 
-from django.http import HttpResponse
-from . import tasks
+
 
 def test_celery(request):
 	result = tasks.add.delay(10 , 30)
 	return HttpResponse(result.task_id)
 
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from django.core.cache import cache
-from datetime import datetime
 
 
 
@@ -85,42 +93,7 @@ class TestCache(APIView):
 
 
 
-# def token_required(request):
-#     logger.debug(request)
-#     logger.debug(request.data)
-#
-#     return None
-#
-# @token_required
 
-
-#
-#
-# class TokenVerify(BasePermission):
-#
-#     def has_permission(self, request, view):
-#         logger.debug(request)
-#         logger.debug(request.data)
-#         logger.debug(request.user)
-#         # logger.debug(request.META.get('HTTP_AUTHORIZATION'))
-#         token = request.META.get('HTTP_AUTHORIZATION')
-#         logger.debug(token)
-#         logger.debug(request.auth)
-#         if token is None:
-#             # clearly not authorised
-#             return False
-#         else :
-#             # chance - might be authorised
-#             return False
-#
-#         return False
-
-from rest_framework_jwt.authentication import JSONWebTokenAuthentication
-
-
-
-##http://jpadilla.com/post/73791304724/auth-with-json-web-tokens
-from django.views.decorators.cache import never_cache
 
 
 class TestDecorator(APIView):
@@ -133,3 +106,6 @@ class TestDecorator(APIView):
         print "XXOOXX %s" %request.user.username
         data = {'test': 'decorator'}
         return Response(data)
+
+
+

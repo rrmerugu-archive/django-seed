@@ -1,6 +1,6 @@
 __author__ = 'rrmerugu'
 from django.contrib.auth.backends import ModelBackend
-from core.auth import  User
+from core.auth import  MyUser
 
 
 
@@ -9,18 +9,18 @@ class CustomModelBackend(ModelBackend):
         print username
         print password
         try:
-            user = User.objects.get(username=username)
+            user = MyUser.objects.get(username=username)
             print user, "--"
             if user.is_active:
                 if user.check_password(password):
                     return user
             else:
                 return None #user is not active / suspended
-        except  User.DoesNotExist:
+        except  MyUser.DoesNotExist:
             return None
 
     def get_user(self, user_id):
         try:
-            return User.objects.get(pk=user_id)
-        except User.DoesNotExist:
+            return MyUser.objects.get(pk=user_id)
+        except MyUser.DoesNotExist:
             return None
