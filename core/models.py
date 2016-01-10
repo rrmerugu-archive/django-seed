@@ -2,7 +2,10 @@ __author__ = 'rrmerugu'
 from django.db import models
 from django.contrib import admin
 from django.utils import timezone
-from django.contrib.postgres import fields
+from .utils import  get_client_ip
+
+import logging
+logger = logging.getLogger(__name__)
 
 project_type_choices = (
     ("r2_gromacs", "R2 GROMACS"),
@@ -23,16 +26,17 @@ class Project(models.Model):
     project_log = models.CharField(max_length=500)
     project_started = models.DateTimeField(auto_now_add=timezone.now())
     project_user_email = models.EmailField(max_length=100)
-    # project_ip_address = models.IPAddressField()
+    project_ip_address = models.GenericIPAddressField(null=True, blank=True, default="0.0.0.0")
 
 
 
     def __str__(self):
         return self.project_name
 
-    # def save(self, *args, **kwargs):
-    #     pass
-    #     super(Project, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        logger.debug(kwargs)
+
+        super(Project, self).save(*args, **kwargs)
 
 
 

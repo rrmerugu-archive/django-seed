@@ -23,12 +23,16 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    """
-    This is the Project viewset.
-    """
     permission_classes = (AllowAny,)
     queryset =  Project.objects.all()
     serializer_class =  ProjectSerialzer
+
+    def create_from_client(self, request, *args, **kwargs):
+        logger.debug("Create projects from client")
+        return viewsets.ModelViewSet.create(self, request, *args, **kwargs)
+
+
+
 
 class BlogViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
