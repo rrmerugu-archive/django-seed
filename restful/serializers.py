@@ -14,10 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyUser
         fields = ('password', 'first_name', 'last_name', 'email')
+        extra_kwargs = {'password': {'write_only': True}}
+
 
     def create(self, validated_data):
         return MyUser.objects.register_user(**validated_data)
-        #return JsonResponse({"mesg": "User created successfully", "token":"sxasdadsndkasndjkasd"})
 
 
 class ProjectSerialzer(serializers.ModelSerializer):
