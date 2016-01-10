@@ -26,7 +26,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     """
     This is the Project viewset.
     """
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
     queryset =  Project.objects.all()
     serializer_class =  ProjectSerialzer
 

@@ -180,7 +180,6 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
 admin.site.unregister(Group)
 
 

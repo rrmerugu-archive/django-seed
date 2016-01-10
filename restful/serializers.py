@@ -11,6 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ProjectSerialzer(serializers.ModelSerializer):
+
     class Meta:
         model= Project
 

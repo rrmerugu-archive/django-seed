@@ -73,6 +73,17 @@ JWT(default) is the prefix defined in the settings..
 
 
 
+### Starting the project
+
+```
+python manage.py migrate
+python manage.py makemigrations core
+python manage.py migrate
+python manage.py createsuperuser 
+python manage.py runserver 
+
+```
+
 ### How to implement Queing System
 
 We implemented this queing system with rabbitmq and celery

@@ -1,23 +1,46 @@
 __author__ = 'rrmerugu'
-
 from django.db import models
 from django.contrib import admin
 from django.utils import timezone
+from django.contrib.postgres import fields
 
+project_type_choices = (
+    ("r2_gromacs", "R2 GROMACS"),
+    ("r2_qsar", "R2 QSAR"),
+    ("r2_scraper", "R2 SCRAPER")
+)
 
 class Project(models.Model):
-    project_id = models.IntegerField()
-    project_name = models.CharField(max_length=100)
+
+    project_id = models.AutoField(primary_key=True )
+    project_key = models.CharField(max_length=100, blank=False, null=False)
+    project_name = models.CharField(max_length=200)
+    project_tags = models.CharField(max_length=500)
+
+    project_config = models.CharField(max_length=500)
+    project_path = models.CharField(max_length=500)
+    project_type = models.CharField(max_length=30, choices=project_type_choices)
+    project_log = models.CharField(max_length=500)
+    project_started = models.DateTimeField(auto_now_add=timezone.now())
+    project_user_email = models.EmailField(max_length=100)
+    # project_ip_address = models.IPAddressField()
+
+
 
     def __str__(self):
         return self.project_name
+
+    # def save(self, *args, **kwargs):
+    #     pass
+    #     super(Project, self).save(*args, **kwargs)
+
 
 
 
 def mark_as_done(modeladmin, request, queryset):
     queryset.update(status='p')
 
-admin.site.register(Project)
+
 
 
 
@@ -57,3 +80,4 @@ class Subscriber(models.Model):
 admin.site.register(Post)
 admin.site.register(Category)
 admin.site.register(Subscriber)
+# admin.site.register(Project)
