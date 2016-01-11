@@ -11,7 +11,7 @@ urlpatterns =[
     # login, register, forgot-password
     url(r'^auth/login/$', views.login_user, name='login'),
     url(r'^auth/logout/$', views.logout_user, name='logout'),
-    url(r'^auth/register/$', views.register, name='logout'),
+    url(r'^auth/register/$', views.register, name='register'),
     url(r'^auth/password-reset/$', password_reset,{'post_reset_redirect' : 'auth/password-reset-done/', 'template_name': 'password-reset.html'}, name="password_reset"),
     url(r'^auth/password-reset-done/$', password_reset_done,{ 'template_name': 'password-reset-done.html'}, name="password_reset_done"),
 

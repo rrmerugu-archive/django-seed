@@ -16,7 +16,9 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         user = self.model(
             email=self.normalize_email(email),
-            first_name=first_name
+            first_name=first_name,
+            is_staff=False,
+            is_active=True,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -28,8 +30,8 @@ class CustomUserManager(BaseUserManager):
                 password=password,
         )
         user.is_admin = True
-        user.is_staff = True
         user.is_superuser = True
+        user.is_staff = True
         user.save(using=self._db)
         return user
 
@@ -90,15 +92,7 @@ class MyUser(AbstractBaseUser):
 
     def get_short_name(self):
         return "%s" %self.first_name
-    #
-    # def is_staff(self):
-    #     return self.is_staff
-    #
-    # def is_admin(self):
-    #     return self.is_admin
-    #
-    # def is_superuser(self):
-    #     return self.is_superuser
+
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -167,7 +161,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(MyUser)
+    author = models.ForeignKey('MyUser')
     title = models.CharField(max_length=200, unique=True, db_index=True)
     title_slug = models.CharField(max_length=300, unique=True, db_index=True)
     text = models.TextField()

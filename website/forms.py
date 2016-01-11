@@ -10,7 +10,7 @@ class RegistrationForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs=dict(required=True, max_length=30)), label=_("Email address"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Confirm Password"))
-
+    agree_terms = forms.BooleanField(required=True, label="I agree to the Terms & Conditions")
     def clean_email(self):
         try:
             user = MyUser.objects.get(email__iexact=self.cleaned_data['email'])

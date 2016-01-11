@@ -44,7 +44,7 @@ def login_user(request):
     if request.POST:
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(email=email, password=password)
+        user = authenticate(username=email, password=password)
         if user is not None:
             if user.is_active:
                 login(request, user)
@@ -74,7 +74,7 @@ def register(request):
             password=form.cleaned_data['password1'],
             first_name=form.cleaned_data['first_name']
             )
-            user = authenticate(email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+            user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
             logger.debug(user)
             login(request, user)
             return HttpResponseRedirect('/user/welcome/')
