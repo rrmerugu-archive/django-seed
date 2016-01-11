@@ -2,6 +2,21 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+
+
 {% block content %}
-    {{ post.body }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+           <h1>{{ post.title }}</h1>
+            {{ post.body }}
+        </div>
+         <div class="col-md-3">
+
+         </div>
+    </div>
+</div>
+
+
 {% endblock %}
