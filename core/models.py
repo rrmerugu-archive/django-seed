@@ -148,53 +148,31 @@ def mark_as_done(modeladmin, request, queryset):
 
 
 
-class Category(models.Model):
-    title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField( db_index=True, blank=True)
-
-
-    def __unicode__(self):
-        return self.title
-
-    @permalink
-    def get_absolute_url(self):
-        return ('view_blog_category', None, { 'slug': self.slug })
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.title)
-    #     super(Category, self).save(*args, **kwargs)
 
 class Post(models.Model):
-    post_id = models.AutoField(primary_key=True)
-    # author = models.ForeignKey(MyUser)
-    title = models.CharField(unique=True, max_length=300, db_index=True)
-    slug = models.SlugField( db_index=True, blank=True)
-    text = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateTimeField( blank=True, null=True)
-    categories = models.ManyToManyField(Category)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
-    def __str__(self):
-        return self.title
+    title = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
+    body = models.TextField()
+    posted = models.DateTimeField(db_index=True, auto_now_add=True)
+    category = models.ForeignKey('Category')
 
     def __unicode__(self):
-        return self.title
+        return '%s' % self.title
 
     @permalink
     def get_absolute_url(self):
         return ('view_blog_post', None, { 'slug': self.slug })
 
-    # def get_absolute_url(self):
-    #     return reverse('post', args=[str(self.slug)])
+class Category(models.Model):
+    title = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
 
-    #
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.title)
-    #     super(Post, self).save(*args, **kwargs)
+    def __unicode__(self):
+        return '%s' % self.title
+
+    @permalink
+    def get_absolute_url(self):
+        return ('view_blog_category', None, { 'slug': self.slug })
 
 
 class Subscriber(models.Model):

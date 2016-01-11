@@ -11,7 +11,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 #
 class PostAdmin(admin.ModelAdmin):
-    # exclude = ['posted']
+    exclude = ['posted']
     prepopulated_fields = {'slug': ('title',)}
 
 class CategoryAdmin(admin.ModelAdmin):
