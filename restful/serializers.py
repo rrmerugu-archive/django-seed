@@ -3,8 +3,8 @@ __author__ = 'rrmerugu'
 
 from rest_framework import   serializers
 from django.http import JsonResponse
-from core.models import Project, Post, Subscriber
-from core.auth import MyUser
+from core.models import Project, Post, Subscriber, MyUser
+
 import logging
 logger = logging.getLogger(__name__)
 

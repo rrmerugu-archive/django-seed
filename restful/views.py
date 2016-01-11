@@ -5,8 +5,7 @@ from django.http import HttpResponse
 
 from . import tasks
 from rest_framework import viewsets
-from core.models import  Project, Post, Subscriber
-from core.auth import  MyUser
+from core.models import  Project, Post, Subscriber, MyUser
 from .serializers import UserSerializer, ProjectSerialzer, PostSerializer, SubscriberSerializer
 from rest_framework.permissions import IsAuthenticated, BasePermission, AllowAny
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication

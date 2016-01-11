@@ -3,9 +3,10 @@ from django.db import models
 from django.contrib import admin
 from django.utils import timezone
 from .utils import  get_client_ip
-
+from django.template.defaultfilters import slugify
 import logging
 logger = logging.getLogger(__name__)
+from django.db.models import permalink
 
 
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
@@ -53,7 +54,7 @@ class CustomUserManager(BaseUserManager):
 class MyUser(AbstractBaseUser):
     # Last login, is active, and password are included automatically
     username =  models.CharField(max_length=30, blank=False)
-    email    =  models.EmailField(max_length=150, blank=False, unique=True)
+    email    =  models.EmailField(max_length=150, blank=False, primary_key=True,  unique=True)
     date_joined =  models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=10, blank=True)
     last_name = models.CharField(max_length=10, blank=True)
@@ -84,8 +85,6 @@ class MyUser(AbstractBaseUser):
     # These are needed for the admin
     # https://docs.djangoproject.com/en/1.9/topics/auth/customizing/#custom-users-and-django-contrib-admin
     # Full example - https://docs.djangoproject.com/en/1.9/topics/auth/customizing/#a-full-example
-    # def is_active(self):
-    #     return self.is_active
 
     def get_full_name(self):
         return "%s %s"%(self.first_name, self.last_name)
@@ -128,7 +127,7 @@ class Project(models.Model):
     project_path = models.CharField(max_length=500)
     project_type = models.CharField(max_length=30, choices=project_type_choices)
     project_log = models.CharField(max_length=500)
-    project_started = models.DateTimeField(auto_now_add=timezone.now())
+    project_started = models.DateTimeField(auto_now_add=True)
     project_user_email = models.EmailField(max_length=100)
     project_ip_address = models.GenericIPAddressField(null=True, blank=True, default="0.0.0.0")
 
@@ -154,20 +153,29 @@ def mark_as_done(modeladmin, request, queryset):
 
 class Category(models.Model):
     title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True)
+    slug = models.SlugField( db_index=True, blank=True)
 
     def __unicode__(self):
         return '%s' % self.title
 
 
+    @permalink
+    def get_absolute_url(self):
+        return ('view_blog_category', None, { 'slug': self.slug })
+
+    def save(self, *args, **kwargs):
+        # self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
+
 class Post(models.Model):
-    author = models.ForeignKey('MyUser')
+    post_id = models.AutoField(primary_key=True)
+    author = models.ManyToManyField(MyUser)
     title = models.CharField(max_length=200, unique=True, db_index=True)
-    title_slug = models.CharField(max_length=300, unique=True, db_index=True)
+    slug = models.SlugField( db_index=True, blank=True)
     text = models.TextField()
-    created_date = models.DateTimeField( default=timezone.now)
+    created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField( blank=True, null=True)
-    category = models.ForeignKey(Category)
+    category = models.ManyToManyField(Category)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -176,16 +184,23 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @permalink
+    def get_absolute_url(self):
+        return ('view_blog_post', None, { 'slug': self.slug })
+
+
+    def save(self, *args, **kwargs):
+        # self.title_slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
+
 
 class Subscriber(models.Model):
-    subscriber_id = models.IntegerField()
+    subscriber_id = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=100)
     is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(default=timezone.now())
-    date_updated = models.DateTimeField(default=timezone.now(),blank=True, null =True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    # date_updated = models.DateTimeField(auto_now_add=True)
 
 
-admin.site.register(Post)
-admin.site.register(Category)
-admin.site.register(Subscriber)
-# admin.site.register(Project)
+
+

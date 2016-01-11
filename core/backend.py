@@ -1,6 +1,6 @@
 __author__ = 'rrmerugu'
 from django.contrib.auth.backends import ModelBackend
-from core.auth import  MyUser
+from core.models import  MyUser
 
 
 

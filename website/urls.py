@@ -21,5 +21,12 @@ urlpatterns =[
     url(r'^user/welcome/$', views.register_success, name='logout'),
 
 
+
+    # blog
+    url( r'^blog/$', 'website.blog.index'),
+    url( r'^blog/view/(?P<slug>[^\.]+).html', 'website.blog.view_post', name='view_blog_post'),
+    url( r'^blog/category/(?P<slug>[^\.]+).html', 'website.blog.view_category', name='view_blog_category'),
+
+
 ]
 
