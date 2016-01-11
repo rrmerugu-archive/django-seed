@@ -5,11 +5,11 @@ from core.auth import  MyUser
 
 
 class CustomModelBackend(ModelBackend):
-    def authenticate(self, username=None, password=None):
-        print username
+    def authenticate(self, email=None, password=None):
+        print email
         print password
         try:
-            user = MyUser.objects.get(username=username)
+            user = MyUser.objects.get(email=email)
             print user, "--"
             if user.is_active:
                 if user.check_password(password):

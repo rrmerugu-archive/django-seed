@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^restful/', include('restful.urls')),
 
     #website
-    # url(r'^', include('website.urls')),
+    url(r'^', include('website.urls')),
 
 ]
 

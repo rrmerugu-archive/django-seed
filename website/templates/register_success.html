@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{{title }} {% endblock %}
+
+{% block content %}
+
+<style>
+.pageview {
+  min-height: 100%;
+}
+
+
+</style>
+
+<div class="container welcome-page">
+  <div layout="column">
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h1>Welcome</h1>
+        <hr>
+        <div class="m-t-30"></div>
+        <p class="fs-20"> <em>One account is all you need to access</em>. A single username and password gets you into anything and everything we have in rsquarelabs.xyz</p>
+
+        <div class="row">
+          <div class="col-md-7">
+            <img src="/assets/images/ninja.png" alt="" class="img-responsive text-center center-block m-t-40">
+
+          </div>
+          <div class="col-md-5">
+            <a class="btn btn-primary btn-lg get-started" href="#get-started">Get Started</a>
+            <div class="clearfix m-t-50"></div>
+            <a href="/user/" class="m-t-50">I know this, skip this &raquo;</a>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+  <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="get-started">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 text-center">
+      <h3>Start building with RSLABS!</h3>
+      <p>Follow these quick steps and start building high-quality mobile apps in minutes. For a more indepth overview, watch our Crash Course video, which covers everything else you'd want to know.</p>
+
+    </div>
+
+    <div class="col-md-5 col-md-offset-1">
+      <h3>1.  Install rsquarelabs-core</h3>
+      <p>First, install <a href="https://www.python.org/download/releases/2.7/">Python 2.7</a>(Python 3.x is not supported at this moment). Install latest version of JAVA and configure your browser to run java applets for Moleclar Viewer. Follow the instruction to install JAVA for <a href="#">Windows</a>, <a href="#">Mac</a>, <a href="#">CentOS(EPEL versions)</a>, <a href="#">Ubuntu(Debain versions)</a> </p>
+    </div>
+    <div class="col-md-5">
+       <pre class="callout  ">pip install rsquarelabs-core</pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <h3>Start a Project</h3>
+      <p>Create a project with the project scaffold, the project will have current run log ,and activity log which contains good or bad result </p>
+    </div>
+    <div class="col-md-5">
+      <pre class="callout">r2_gromacs init</pre>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <h3>Run the Project</h3>
+      <p>Lorem a project with the project scaffold, the project will have current run log ,and activity log which contains good or bad result </p>
+    </div>
+    <div class="col-md-5">
+      <pre class="callout">lorem_ipusom start</pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <h3>Tracking the running project</h3>
+      <p>Lorem a project with the project scaffold, the project will have current run log ,and activity log which contains good or bad result </p>
+    </div>
+    <div class="col-md-5">
+      <pre class="callout">lorem_ipusom start</pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <h3>Manage the Projects</h3>
+      <p>Lorem a project with the project scaffold, the project will have current run log ,and activity log which contains good or bad result </p>
+    </div>
+    <div class="col-md-5">
+      <pre class="callout">lorem_ipusom start</pre>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
