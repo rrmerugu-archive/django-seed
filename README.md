@@ -73,6 +73,8 @@ JWT(default) is the prefix defined in the settings..
 
 
 
+http://stackoverflow.com/questions/778382/accepting-email-address-as-username-in-django
+
 ### Starting the project
 
 ```
