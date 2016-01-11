@@ -75,7 +75,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'oauth2_provider',
-   'corsheaders',
+    'corsheaders',
+    'ckeditor',
     'core',
     'bootstrapform',
     'restful',
@@ -87,6 +88,13 @@ INSTALLED_APPS = [
 
 ]
 
+
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+}
 
 
 ## caching middleware added
@@ -212,7 +220,7 @@ WSGI_APPLICATION = 'rsquarelabs_api.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'rsquarelabs_api1',                      # Or path to database file if using sqlite3.
+            'NAME': 'rsquarelabs_api',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
             'USER': 'postgres',
             'PASSWORD': 'welcome',
@@ -255,8 +263,15 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+
+#STATIC_ROOT = ""
 STATIC_PATH = os.path.join(os.path.dirname(__file__),'../website/assets')
 STATICFILES_DIRS = (
     STATIC_PATH,
