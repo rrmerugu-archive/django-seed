@@ -131,14 +131,11 @@ class Project(models.Model):
     project_user_email = models.EmailField(max_length=100)
     project_ip_address = models.GenericIPAddressField(null=True, blank=True, default="0.0.0.0")
 
-
-
     def __str__(self):
         return self.project_name
 
     def save(self, *args, **kwargs):
         logger.debug(kwargs)
-
         super(Project, self).save(*args, **kwargs)
 
 
@@ -155,27 +152,27 @@ class Category(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField( db_index=True, blank=True)
 
-    def __unicode__(self):
-        return '%s' % self.title
 
+    def __unicode__(self):
+        return self.title
 
     @permalink
     def get_absolute_url(self):
         return ('view_blog_category', None, { 'slug': self.slug })
 
-    def save(self, *args, **kwargs):
-        # self.slug = slugify(self.title)
-        super(Category, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.title)
+    #     super(Category, self).save(*args, **kwargs)
 
 class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
-    author = models.ManyToManyField(MyUser)
-    title = models.CharField(max_length=200, unique=True, db_index=True)
+    # author = models.ForeignKey(MyUser)
+    title = models.CharField(unique=True, max_length=300, db_index=True)
     slug = models.SlugField( db_index=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField( blank=True, null=True)
-    category = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -184,14 +181,20 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def __unicode__(self):
+        return self.title
+
     @permalink
     def get_absolute_url(self):
         return ('view_blog_post', None, { 'slug': self.slug })
 
+    # def get_absolute_url(self):
+    #     return reverse('post', args=[str(self.slug)])
 
-    def save(self, *args, **kwargs):
-        # self.title_slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+    #
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.title)
+    #     super(Post, self).save(*args, **kwargs)
 
 
 class Subscriber(models.Model):

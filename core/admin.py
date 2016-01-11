@@ -9,13 +9,13 @@ from .forms import UserChangeForm, UserCreationForm
 class ProjectAdmin(admin.ModelAdmin):
     readonly_fields = ('project_id','project_ip_address')
 
-
+#
 class PostAdmin(admin.ModelAdmin):
-    exclude = ['posted']
-    prepopulated_fields = {'slug': ('slug',)}
+    # exclude = ['posted']
+    prepopulated_fields = {'slug': ('title',)}
 
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('slug',)}
+    prepopulated_fields = {'slug': ('title',)}
 
 
 
